@@ -6,7 +6,7 @@ router.post("/add", async (req, res) => {
     try {
         const todo = req.body.todo;
         if (!todo) {
-            res.status(500).json({ message: "todo not found" });
+            return res.status(500).json({ message: "todo not found" });
         }
 
         const newTodo =  new todoModel({todo});
@@ -16,7 +16,7 @@ router.post("/add", async (req, res) => {
     } catch (error) {
 
         console.error("Error message:", error);
-        res.status(500).json({ success: false, message: error });
+        res.status(500).json({ success: false, message: error.message });
 
     }
 });
