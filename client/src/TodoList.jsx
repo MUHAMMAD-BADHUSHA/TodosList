@@ -9,7 +9,7 @@ function TodoList() {
       alert('todo is emty')
     }else{
       
-    axios.post('http://localhost:5000/add',{todo})
+    axios.post('https://todoslist-qihj.onrender.com/add',{todo})
     .then((response)=>{
       if(response.data.success){
         console.log(response.data)
@@ -23,14 +23,14 @@ function TodoList() {
   }
 }
   const handleDelete = (id)=>{
-    axios.delete('http://localhost:5000/delete/'+id)
+    axios.delete('https://todoslist-qihj.onrender.com/delete/'+id)
     .then((response)=>{
       setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== id))
       console.log(response.data)})
     .catch((err)=>console.log(err))
   }
   const handleUpdate = (id)=>{
-    axios.put('http://localhost:5000/update/'+id)
+    axios.put('https://todoslist-qihj.onrender.com/update/'+id)
     .then((response)=>{
       console.log(response.message,response.data),
       location.reload()
@@ -39,7 +39,7 @@ function TodoList() {
 
   }
   useEffect(()=>{
-    axios.get('http://localhost:5000/get')
+    axios.get('https://todoslist-qihj.onrender.com/get')
     .then((response) => {
       console.log(response.data);
       setTodos(response.data.data);

@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGO_URL)
   .catch((err) => console.log('Connection error:', err))
 
 app.use(cors({
-    origin: "https://your-frontend.vercel.app",
+    origin: "https://todos-list-git-main-muhammad-badhushas-projects.vercel.app",
     credentials: true 
   }));
 app.use(express.json())
